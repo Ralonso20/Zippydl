@@ -32,14 +32,28 @@ def download_zippyshare(link):
     # Descarga el archivo desde el enlace directo
     filename = direct_link.split('/')[-1]
     with urllib.request.urlopen(direct_link) as response, open(filename, 'wb') as out_file:
+        # Obtén la longitud del archivo para mostrar el progreso de la descarga
+        file_size = int(response.getheader('Content-Length').strip())
+        # Inicia la descarga y muestra la información en la consola
+        downloaded = 0
+        block_size = 1024
         while True:
-            data = response.read(1024)
+            data = response.read(block_size)
             if not data:
                 break
+            downloaded += len(data)
             out_file.write(data)
+            show_progress(downloaded, file_size)
 
     # Cierra el navegador controlado por Selenium
     driver.quit()
+
+
+def show_progress(downloaded, total):
+    """Muestra el progreso de la descarga en la consola."""
+    percent = downloaded / total * 100
+    speed = downloaded / 1024 / 1024
+    print(f'Descargando archivo... {percent:.2f}% completado ({speed:.2f} MB descargados)')
 
 
 def main():
@@ -48,8 +62,10 @@ def main():
         links = f.read().splitlines()
 
     # Descarga cada archivo de Zippyshare en la lista de links
-    for link in links:
-        download_zippyshare(link)
+    # for link in links:
+    #    download_zippyshare(link)
+
+    download_zippyshare("https://www74.zippyshare.com/v/aW8sY0hc/file.html")
 
 
 if __name__ == '__main__':
