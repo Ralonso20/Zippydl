@@ -6,9 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 
-def download_file(driver):
-    link = get_download_link(driver)
-    filename = get_file_name(link)
+def download_file(link, filename):
     with urllib.request.urlopen(link) as response, open(filename, 'wb') as out_file:
         # Obtén la longitud del archivo para mostrar el progreso de la descarga
         file_size = get_file_length(response)
@@ -22,7 +20,7 @@ def download_file(driver):
                 break
             downloaded += len(data)
             out_file.write(data)
-            show_progress(downloaded, file_size, start_time)
+            show_progress(downloaded, file_size, start_time, filename)
 
 
 def get_file_length(response):
@@ -59,11 +57,10 @@ def download_zippyshare(link):
 
     # Abre el enlace en el navegador controlado por Selenium
     driver.get(link)
-
     click_download_button(driver)
-
-    # Descarga el archivo desde el enlace directo
-    download_file(driver)
+    link = get_download_link(driver)
+    filename = get_file_name(link)
+    download_file(link, filename)
 
     # Cierra el navegador controlado por Selenium
     driver.quit()
@@ -104,13 +101,10 @@ def main():
         links = f.read().splitlines()
 
     # Descarga cada archivo de Zippyshare en la lista de links
-    # for link in links:
-    #    download_zippyshare(link)
-
-    download_zippyshare("https://www106.zippyshare.com/v/p71kSAgC/file.html")
+    for link in links:
+        download_zippyshare(link)
+        print(f"Guardo exitosamente el archivo {get_file_name(link)}")
 
 
 if __name__ == '__main__':
     main()
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
