@@ -1,0 +1,10 @@
+.idea
+.vscode
+build
+dist
+geckodriver.log
+links.txt
+zippydl.spec
+assets/icon.ico
+ico.psd
+downloads

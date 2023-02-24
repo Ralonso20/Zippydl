@@ -11,25 +11,18 @@ FILE_NAME_ACCEPTED = "links.txt"
 
 
 def end_program():
-    print("The program has been stopped.")
+    input("The program has been stopped, press any key to exit...")
     exit()
 
 
 def validate_txt_file():
     if not os.path.exists(FILE_NAME_ACCEPTED):
-        print(f"The file {FILE_NAME_ACCEPTED} does not exist.")
-        end_program()
-
-    if not FILE_NAME_ACCEPTED.endswith(".txt"):
-        print(f"The file {FILE_NAME_ACCEPTED} is not a txt file.")
+        print(f"The file {FILE_NAME_ACCEPTED} does not exist. Please create it and add the links to download.")
+        print("Remember the file name must be: links.txt and that each link must be on a new line.")
         end_program()
 
     if os.stat(FILE_NAME_ACCEPTED).st_size == 0:
         print(f"The file {FILE_NAME_ACCEPTED} is empty.")
-        end_program()
-
-    if FILE_NAME_ACCEPTED != "links.txt":
-        print(f"The file {FILE_NAME_ACCEPTED} is not called links.txt")
         end_program()
 
 
@@ -153,3 +146,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    input("Presione Enter para salir...")
