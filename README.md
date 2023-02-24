@@ -8,22 +8,22 @@ EL objetivo era crear un programa que sea sencillo de usar y que sin muchas comp
 
 # Ejecución del programa y uso
 
-Para utilizar el programa se puede realizar el proceso de [Instalación]() o ejecutar el archivo **zippydl.exe**, en el mismo directorio que se guarde el archivo zippydl.exe o se tenga el código del programa, se debe guardar un fichero .txt con el siguiente nombre: "links.txt".
-![ejemplo2](assets\ej2.png)
+Para utilizar el programa se puede realizar el proceso de **Instalación** o ejecutar el archivo **zippydl.exe**, en el mismo directorio que se guarde el archivo zippydl.exe o se tenga el código del programa, se debe guardar un fichero .txt con el siguiente nombre: "links.txt".
+![ejemplo2](/assets/ej2.png)
 
 El archivo debe contener todos los links que queramos descargar.
 
-![ejemplo](assets\ejtxt.png)
+![ejemplo](/assets/ejtxt.png)
 
 Si no hay ningún problema se debería abrir una ventana mostrando la siguiente información:
 
-![ejemplo3](assets\ej3.png)
+![ejemplo3](/assets/ej3.png)
 
 Una vez finalizado podremos cerrar la terminal:
 
-![ejemplo4](assets\ej4.png)
+![ejemplo4](/assets/ej4.png)
 
-# [Instalación]()
+# Instalación
 
 1. Instalación de Python:
    Si aún no tienes Python instalado en tu computadora, debes descargar e instalar la última versión de Python desde la página oficial de Python ([https://www.python.org/downloads/](https://www.python.org/downloads/)). Sigue las instrucciones del instalador para completar la instalación.
